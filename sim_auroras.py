@@ -258,6 +258,7 @@ class UCD:
             p_saur = 2 * (area_pole / MU_0) * v_a_pole * ((v_rel / v_a_local) * alpha * B_local) ** 2 # W Ecuación 54
             p_mia_total += p_mia # W
             p_saur_total += p_saur # W
+        print("Potencia disponible total: " + str(p_saur_total) + "W")
         return [p_mia_total, p_saur_total] # W
 
     def spectrum_frequencies(self, nombre, PPoyn, B_surf_Tesla, dist_pc, eff, ne, D_sr, energia):
@@ -484,8 +485,7 @@ campos_magneticos = np.array([objetos["Jupiter"]["B_surf"], objetos["Saturno"]["
 radios = np.array([objetos["Jupiter"]["Radius"], objetos["Saturno"]["Radius"], objetos["WISE"]["Radius"]
                       , objetos["TVLM 513"]["Radius"], objetos["LSR J1835"]["Radius"], objetos["LSPM J0036"]["Radius"],
                    objetos["AU Mic"]["Radius"]])
-potencias_alfven = np.array([796316584982.2689, 45328018.72587942, 4.661421284770463e+16, 3.822959344925759e+17,
-                             5.6202774458655795e+17, 4.95043729112289e+17, 2.8331998769557517e+17]) # potencias extraidas
+potencias_alfven = np.array([powerjupiter,powersaturno,powerwise,powertvlm,powerlsr,powerlspm,poweraum]) # potencias extraidas
 # de PPoynting W
 plt.figure(figsize=(10, 7))
 formas = ['o', 's', '^', 'D', 'X', 'v']
